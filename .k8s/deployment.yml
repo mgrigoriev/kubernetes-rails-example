@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-rails-example-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: rails-app
+  template:
+    metadata:
+      labels:
+        app: rails-app
+    spec:
+      containers:
+        - name: rails-app
+          image: mgrigoriev/kubernetes-rails-example:latest
+          ports:
+            - containerPort: 3000

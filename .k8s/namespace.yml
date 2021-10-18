@@ -1,0 +1,10 @@
+{
+  "apiVersion": "v1",
+  "kind": "Namespace",
+  "metadata": {
+    "name": "rails-app-dev",
+    "labels": {
+      "name": "rails-app-dev"
+    }
+  }
+}
