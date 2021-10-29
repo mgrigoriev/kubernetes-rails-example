@@ -1,0 +1,12 @@
+.git
+.gitignore
+
+node_modules/
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+.DS_Store
+.idea
