@@ -1,9 +1,11 @@
+# Run when docker image changed:
+#   kubectl rollout restart deployment kubernetes-rails-example-deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kubernetes-rails-example-deployment
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: rails-app
@@ -17,3 +19,15 @@ spec:
           image: mgrigoriev/kubernetes-rails-example:latest
           ports:
             - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: rails-app-secrets
+                  key: database-url
+            - name: RAILS_ENV
+              value: 'production'
+            - name: RAILS_LOG_TO_STDOUT
+              value: 'true'
+            - name: RAILS_SERVE_STATIC_FILES
+              value: 'true'
