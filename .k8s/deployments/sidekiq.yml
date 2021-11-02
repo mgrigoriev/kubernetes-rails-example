@@ -1,0 +1,24 @@
+# Add redis-url secret, for Minikube: redis://host.minikube.internal:6379/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sidekiq
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sidekiq
+  template:
+    metadata:
+      labels:
+        app: sidekiq
+    spec:
+      containers:
+        - name: sidekiq
+          image: mgrigoriev/kubernetes-rails-example:latest
+          command: ['sidekiq']
+          envFrom:
+            - configMapRef:
+                name: env
+            - secretRef:
+                name: env

@@ -4,7 +4,7 @@
 
 # ————————————————————————————————————————————————————————————————————————————————
 # Stage 1: Builder
-FROM ruby:2.7.3-alpine as Builder
+FROM ruby:2.7.4-alpine as Builder
 
 ENV APP_HOME=/rails_app
 
@@ -46,7 +46,7 @@ RUN rm -rf node_modules tmp/cache spec
 
 # ————————————————————————————————————————————————————————————————————————————————
 # Stage 2: Final
-FROM ruby:2.7.3-alpine
+FROM ruby:2.7.4-alpine
 
 ENV APP_HOME=/rails_app
 

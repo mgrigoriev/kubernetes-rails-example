@@ -10,3 +10,7 @@ node_modules/
 
 .DS_Store
 .idea
+.todo
+
+.k8s/
+deploy.sh

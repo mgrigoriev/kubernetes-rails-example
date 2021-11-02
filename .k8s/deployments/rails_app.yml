@@ -1,0 +1,26 @@
+# Run when docker image changed:
+#   kubectl rollout restart deployment rails-app
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rails-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rails-app
+  template:
+    metadata:
+      labels:
+        app: rails-app
+    spec:
+      containers:
+        - name: rails-app
+          image: mgrigoriev/kubernetes-rails-example:latest
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: env
+            - secretRef:
+                name: env
