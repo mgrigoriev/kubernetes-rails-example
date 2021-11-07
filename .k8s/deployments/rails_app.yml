@@ -24,3 +24,5 @@ spec:
                 name: env
             - secretRef:
                 name: env
+      imagePullSecrets:
+        - name: regcred
