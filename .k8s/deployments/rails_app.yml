@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: rails-app
-          image: mgrigoriev/kubernetes-rails-example:latest
+          image: mgrigoriev/kubernetes-rails-example:main
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           envFrom:

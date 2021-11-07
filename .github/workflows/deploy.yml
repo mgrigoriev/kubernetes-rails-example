@@ -32,13 +32,11 @@ jobs:
           file: Dockerfile
 
       - name: Migrate database
-        run: |
-          kubectl create -f .k8s/jobs/migrate.yml
-          kubectl wait --for=condition=complete --timeout=600s job/migrate
-          kubectl delete job migrate
+        run: sh .deploy_scripts/migrate.sh
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
 
-      - name: Restart app
-        run: kubectl rollout restart deployment/rails-app
-
-      - name: Restart sidekiq
-        run: kubectl rollout restart deployment/sidekiq
+      - name: Restart pods
+        run: sh .deploy_scripts/restart_pods.sh
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}

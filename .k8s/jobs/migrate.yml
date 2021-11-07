@@ -8,7 +8,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: migrate
-          image: mgrigoriev/kubernetes-rails-example:latest
+          image: mgrigoriev/kubernetes-rails-example:main
           command: ['rails']
           args: ['db:migrate']
           envFrom:

@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: sidekiq
-          image: mgrigoriev/kubernetes-rails-example:latest
+          image: mgrigoriev/kubernetes-rails-example:main
+          imagePullPolicy: Always
           command: ['sidekiq']
           envFrom:
             - configMapRef:
