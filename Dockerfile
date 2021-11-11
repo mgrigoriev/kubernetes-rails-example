@@ -1,7 +1,3 @@
-# Run to build:
-#   docker build --no-cache -t mgrigoriev/kubernetes-rails-example:main .
-#   docker push mgrigoriev/kubernetes-rails-example:main
-
 # ————————————————————————————————————————————————————————————————————————————————
 # Stage 1: Builder
 FROM ruby:2.7.4-alpine as Builder

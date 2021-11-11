@@ -1,4 +1,3 @@
-# Add redis-url secret, for Minikube: redis://host.minikube.internal:6379/
 apiVersion: apps/v1
 kind: Deployment
 metadata:

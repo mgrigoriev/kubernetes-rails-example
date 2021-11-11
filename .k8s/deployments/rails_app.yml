@@ -1,5 +1,3 @@
-# Run when docker image changed:
-#   kubectl rollout restart deployment rails-app
 apiVersion: apps/v1
 kind: Deployment
 metadata:
